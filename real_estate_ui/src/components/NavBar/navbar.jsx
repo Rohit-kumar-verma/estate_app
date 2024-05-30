@@ -31,7 +31,7 @@ const NavBar = () => {
             ): (
                 <>
                     <a href='/' >Sign in</a>
-                    <a href='/' className='signUp'>Sign up</a>
+                    <a href='/register' className='signUp'>Sign up</a>
                 </>
             )}
             <div className='menuIcon'>

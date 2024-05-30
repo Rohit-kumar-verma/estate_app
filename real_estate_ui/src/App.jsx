@@ -3,6 +3,7 @@ import HomePage from './routes/HomePage/HomePage'
 import SinglePage from './routes/SinglePage/SinglePage'
 import ListPage from './routes/ListPage/listPage'
 import ProfilePage from './routes/ProfilePage/ProfilePage'
+import Register from './routes/Register/Register'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Layout from './routes/layout/layout';
 
@@ -28,6 +29,10 @@ function App() {
         {
           path:'/profile',
           element: <ProfilePage/>,
+        },
+        {
+          path:'/register',
+          element: <Register/>,
         }
       ]
     }

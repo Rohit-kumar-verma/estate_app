@@ -35,7 +35,6 @@ export const login =async (req,res)=>{
 
     try{
     // user exist or not
-
     const user =await prisma.user.findUnique({
         where:{username}
     })
@@ -45,7 +44,6 @@ export const login =async (req,res)=>{
     }
 
     // password is valid
-
     const isPasswordValid=await bcrypt.compare(password,user.password)
 
     if(!isPasswordValid){
@@ -57,8 +55,6 @@ export const login =async (req,res)=>{
         id:user.id
     }, process.env.JWT_SECRET_KEY, {expiresIn:age})
 
-    // generate the cookei token and send to the user
-    // res.setHeader("Set-cookie", "test=" + "myValue").json("success")
     res.cookie("token", token, {
         httpOnly:true,
         maxAge: age
