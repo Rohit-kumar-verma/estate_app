@@ -7,16 +7,16 @@ function Register() {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-//   const navigate = useNavigate();
+  const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
       event.preventDefault();
 
       const formData = new FormData(event.target);
 
-      // Access and manipulate form data as needed
-      // Send the data to MongoDB using your preferred method (e.g., API call
-      // Extract values from FormData
+    // Access and manipulate form data as needed
+    // Send the data to MongoDB using your preferred method (e.g., API call
+    // Extract values from FormData
     const username = formData.get("username");
     const email = formData.get("email");
     const password = formData.get("password");
@@ -31,7 +31,7 @@ function Register() {
       console.log(res);
       navigate("/login");
     } catch (err) {
-      setError(err.response.message);
+      setError(err.response.data.message);
     } finally {
       setIsLoading(false);
     }
@@ -41,9 +41,9 @@ function Register() {
       <div className="formContainer">
         <form onSubmit={handleSubmit}>
           <h1>Create an Account</h1>
-          <input name="username" type="text" required />
-          <input name="email" type="email" required />
-          <input name="password" type="password" required />
+          <input name="username" type="text" placeholder="Username"required />
+          <input name="email" type="email" placeholder="Email" required />
+          <input name="password" type="password" placeholder="Password" required />
           <button type="submit" disabled={isLoading}>
             {isLoading ? "Registering..." : "Register"}
           </button>

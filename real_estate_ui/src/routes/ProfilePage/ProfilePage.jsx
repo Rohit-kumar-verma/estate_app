@@ -1,9 +1,24 @@
 import List from "../../components/List/List"
 import Chat from "../../components/Chat/Chat"
+import { AuthContext } from "../../context/AuthContext";
 import './profilePage.scss'
+import { useContext, useEffect } from "react"
+import { useNavigate } from "react-router-dom";
 
 const ProfilePage = () => {
+
+  const {updateUser, currentUser} = useContext(AuthContext)
+
+  const navigate =useNavigate()
+
+  useEffect(()=>{
+    if(!currentUser){
+      navigate("/login")
+    }
+  }, currentUser, navigate)
   return (
+
+  currentUser && (
     <div className='profilePage'>
       <div className="details">
         <div className="wrapper">
@@ -14,10 +29,10 @@ const ProfilePage = () => {
             <div className="info">
                 <span>
                     Avatar: 
-                    <img src='../../../src/assets/favicon.png' alt=''/>
+                    <img src={currentUser.avatar || '../../../src/assets/favicon.png'} alt=''/>
                 </span>
-                <span>Username: <b>John dove</b></span>
-                <span>E-mail: <b>john@gmail.com</b></span>
+                <span>Username: <b>{currentUser.username}</b></span>
+                <span>E-mail: <b>{currentUser.email}</b></span>
             </div>
             <div className="title">
                 <h1>My List</h1>
@@ -36,6 +51,7 @@ const ProfilePage = () => {
         </div>
       </div>
     </div>
+    )
   )
 }
 

@@ -4,6 +4,7 @@ import SinglePage from './routes/SinglePage/SinglePage'
 import ListPage from './routes/ListPage/listPage'
 import ProfilePage from './routes/ProfilePage/ProfilePage'
 import Register from './routes/Register/Register'
+import Login from './routes/Login/Login'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Layout from './routes/layout/layout';
 
@@ -33,7 +34,11 @@ function App() {
         {
           path:'/register',
           element: <Register/>,
-        }
+        },
+        {
+          path:'/login',
+          element: <Login/>,
+        }        
       ]
     }
   ]);
