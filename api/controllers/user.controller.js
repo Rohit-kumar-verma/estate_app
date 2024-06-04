@@ -18,7 +18,7 @@ export const getUser=async (req, res)=>{
             where:{id}
         }
         );
-        res.status(200).json(users)
+        res.status(200).json(user)
         
     } catch (err) {
         console.log(err);
@@ -28,8 +28,7 @@ export const getUser=async (req, res)=>{
 export const updateUser=async (req, res)=>{
     const id=req.params.id;
     const tokenUserId= req.userId;  
-    console.log(req.userId);
-    const {password,...inputs}=req.body
+    const {password,avatar,...inputs}=req.body
 
     if(id!==tokenUserId){
         return res.status(403).json({message:"Not Authorized!"});
@@ -44,7 +43,8 @@ export const updateUser=async (req, res)=>{
             where:{id},
             data:{
                 ...inputs,
-                ...(updatedPassword && {password:updatedPassword})
+                ...(updatedPassword && {password:updatedPassword}),
+                ...(avatar && {avatar})
             }
         })
 
@@ -56,7 +56,19 @@ export const updateUser=async (req, res)=>{
     }
 }
 export const deleteUser=async (req, res)=>{
+    const id=req.params.id;
+    const tokenUserId= req.userId;  
+
+    if(id!==tokenUserId){
+        return res.status(403).json({message:"Not Authorized!"});
+    }
+
     try {
+        await prisma.user.delete({
+            where:{id}
+        })
+
+        res.status(200).json({message:"User deleted"})
         
     } catch (err) {
         console.log(err);

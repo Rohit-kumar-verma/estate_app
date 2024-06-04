@@ -57,11 +57,11 @@ export const login =async (req,res)=>{
     }, process.env.JWT_SECRET_KEY, {expiresIn:age})
 
     const {password:userPassword, ...userInfo} =user
-
     res.cookie("token", token, {
         httpOnly:true,
         maxAge: age
     }).status(200).json(userInfo)
+    console.log(req.cookies.token);
 }
 catch(err){
     console.log(err);
@@ -71,6 +71,6 @@ catch(err){
 
 export const logout =(req,res)=>{
 
-    res.cleaCookie("token").status(200).json({message:"log out succesfull"})
+    res.clearCookie("token").status(200).json({message:"log out succesfull"})
 
 }
