@@ -19,3 +19,14 @@ Content-Type: application/json
 
 ###
 GET  http://localhost:8800/api/test/should-be-logged-in
+
+###
+GET  http://localhost:8800/api/user/665f4ae3f591ee6f3765417a
+
+###
+PUT http://localhost:8800/api/user/665f4ae3f591ee6f3765417a
+Content-Type: application/json
+
+{
+    "username":"rahul_1"
+}

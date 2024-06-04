@@ -5,8 +5,9 @@ import ListPage from './routes/ListPage/listPage'
 import ProfilePage from './routes/ProfilePage/ProfilePage'
 import Register from './routes/Register/Register'
 import Login from './routes/Login/Login'
+import ProfileUpdatePage from './routes/ProfileUpdatePage/ProfileUpdatePage'
+import { RequieredLayout,Layout } from './routes/layout/layout'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Layout from './routes/layout/layout';
 
 function App() {
 
@@ -28,10 +29,6 @@ function App() {
           element:<ListPage/>,
         },
         {
-          path:'/profile',
-          element: <ProfilePage/>,
-        },
-        {
           path:'/register',
           element: <Register/>,
         },
@@ -39,6 +36,20 @@ function App() {
           path:'/login',
           element: <Login/>,
         }        
+      ]
+    },
+    {
+      path:'/',
+      element: <RequieredLayout/>,
+      children:[
+        {
+          path:'/profile',
+          element: <ProfilePage/>,
+        },
+        {
+          path:'/profile/update',
+          element: <ProfileUpdatePage/>,
+        }
       ]
     }
   ]);

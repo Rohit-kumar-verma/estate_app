@@ -9,16 +9,9 @@ const ProfilePage = () => {
 
   const {updateUser, currentUser} = useContext(AuthContext)
 
-  const navigate =useNavigate()
+  // const navigate =useNavigate()
 
-  useEffect(()=>{
-    if(!currentUser){
-      navigate("/login")
-    }
-  }, currentUser, navigate)
   return (
-
-  currentUser && (
     <div className='profilePage'>
       <div className="details">
         <div className="wrapper">
@@ -51,7 +44,6 @@ const ProfilePage = () => {
         </div>
       </div>
     </div>
-    )
   )
 }
 
