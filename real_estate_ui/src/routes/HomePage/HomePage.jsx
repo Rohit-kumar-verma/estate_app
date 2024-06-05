@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
 import SearchBar from '../../components/SearchBar/SearchBar'
 import './homepage.scss'
-import { AuthContext } from '../../context/AuthContext'
+// import { AuthContext } from '../../context/AuthContext'
 
 const HomePage = () => {
 
-  const {className} =useContext(AuthContext)
+  // const {currentUser} =useContext(AuthContext)
 
   return (
     <div className="homePage">

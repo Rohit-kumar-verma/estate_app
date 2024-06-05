@@ -24,11 +24,11 @@ const NavBar = () => {
             {currentUser ? (
             <div className='user'>
                 <img src={currentUser.avatar || '../../../src/assets/favicon.png'} alt='profile'/>
-                <span>currentUser.username</span>
+                <span>{currentUser.username}</span>
                 <Link to='/profile' className='profile'>
                     <div className="notification">3</div>
                     <span>Profile</span>
-                    {currentUser?<span>Logout</span>:""}
+                    {/* {currentUser?<span>Logout</span>:""} */}
                     </Link>
             </div>
             ): (
