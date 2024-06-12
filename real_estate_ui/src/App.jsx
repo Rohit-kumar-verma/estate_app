@@ -8,6 +8,7 @@ import Login from './routes/Login/Login'
 import ProfileUpdatePage from './routes/ProfileUpdatePage/ProfileUpdatePage'
 import { RequieredLayout,Layout } from './routes/layout/layout'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import NewPostPage from './routes/NewPostPage/NewPostPage'
 
 function App() {
 
@@ -49,6 +50,10 @@ function App() {
         {
           path:'/profile/update',
           element: <ProfileUpdatePage/>,
+        },
+        {
+          path:'/add',
+          element: <NewPostPage/>,
         }
       ]
     }

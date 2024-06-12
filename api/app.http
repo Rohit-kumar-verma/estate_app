@@ -30,3 +30,6 @@ Content-Type: application/json
 {
     "username":"raj_2"
 }
+
+###
+GET http://localhost:8800/api/posts

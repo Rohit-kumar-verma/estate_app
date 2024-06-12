@@ -15,7 +15,7 @@ app.use(express.json())
 app.use('/api/auth', authRoute);
 app.use('/api/user', usersRoute);
 app.use('/api/posts', postRoute);
-app.use('/api/test', testRoute)
+app.use('/api/test', testRoute);
 
 app.listen(8800, ()=>{
     console.log("server is running at port:8800!");
