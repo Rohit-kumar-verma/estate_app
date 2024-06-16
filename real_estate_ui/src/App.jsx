@@ -9,7 +9,7 @@ import ProfileUpdatePage from './routes/ProfileUpdatePage/ProfileUpdatePage'
 import { RequieredLayout,Layout } from './routes/layout/layout'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import NewPostPage from './routes/NewPostPage/NewPostPage'
-import { listPageLoader, singlePageLoader } from './lib/loaders'
+import { listPageLoader, profilePageLoader, singlePageLoader } from './lib/loaders'
 
 function App() {
 
@@ -49,6 +49,7 @@ function App() {
         {
           path:'/profile',
           element: <ProfilePage/>,
+          loader:profilePageLoader
         },
         {
           path:'/profile/update',
