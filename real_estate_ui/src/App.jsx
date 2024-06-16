@@ -9,6 +9,7 @@ import ProfileUpdatePage from './routes/ProfileUpdatePage/ProfileUpdatePage'
 import { RequieredLayout,Layout } from './routes/layout/layout'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import NewPostPage from './routes/NewPostPage/NewPostPage'
+import { listPageLoader, singlePageLoader } from './lib/loaders'
 
 function App() {
 
@@ -24,10 +25,12 @@ function App() {
         {
           path:'/:id',
           element: <SinglePage/>,
+          loader: singlePageLoader
         },
         {
           path:'/list-page',
           element:<ListPage/>,
+          loader:listPageLoader,
         },
         {
           path:'/register',

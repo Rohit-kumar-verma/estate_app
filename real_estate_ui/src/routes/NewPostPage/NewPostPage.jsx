@@ -1,9 +1,9 @@
 import { useState } from "react";
-import "./newPostPage.scss";
+import "./NewPostPage.scss";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import apiRequest from "../../lib/apiRequest";
-import UploadWidget from "../../components/uploadWidget/UploadWidget";
+import UploadWidget from "../../components/Uploadwidget/UploadWidget";
 import { useNavigate } from "react-router-dom";
 
 function NewPostPage() {
@@ -164,7 +164,7 @@ function NewPostPage() {
         <UploadWidget
           uwConfig={{
             multiple: true,
-            cloudName: "lamadev",
+            cloudName: "dqfylmzrk",
             uploadPreset: "estate",
             folder: "posts",
           }}
