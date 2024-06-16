@@ -3,7 +3,6 @@ import Chat from "../../components/Chat/Chat"
 import { AuthContext } from "../../context/AuthContext";
 import './profilePage.scss'
 import { useContext, useEffect } from "react"
-import { useNavigate } from "react-router-dom";
 
 const ProfilePage = () => {
 
