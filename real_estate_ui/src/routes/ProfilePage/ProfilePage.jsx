@@ -2,8 +2,8 @@ import List from "../../components/List/List"
 import Chat from "../../components/Chat/Chat"
 import { AuthContext } from "../../context/AuthContext";
 import './profilePage.scss'
-import { useContext, useEffect } from "react"
-import { useLoaderData } from "react-router-dom";
+import { Suspense, useContext, useEffect } from "react"
+import { Await, useLoaderData } from "react-router-dom";
 
 const ProfilePage = () => {
   const data =useLoaderData()
