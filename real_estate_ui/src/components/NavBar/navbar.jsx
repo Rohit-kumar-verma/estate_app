@@ -3,11 +3,17 @@ import { navLinks } from '../../constants'
 import './navbar.scss'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
+import { useNotficationsStore } from '../../lib/notificationsStore';
 
 const NavBar = () => {
     const [open, setOpen]= useState(false);
-    
+
     const {currentUser}= useContext(AuthContext)
+
+    const fetch=useNotficationsStore((state)=>state.fetch)
+    const number=useNotficationsStore((state)=>state.number)
+
+    if(currentUser) fetch()
 
   return (
     <nav>
@@ -26,7 +32,7 @@ const NavBar = () => {
                 <img src={currentUser.avatar || '../../../src/assets/favicon.png'} alt='profile'/>
                 <span>{currentUser.username}</span>
                 <Link to='/profile' className='profile'>
-                    <div className="notification">3</div>
+                    {number>0 && <div className="notification">{number}</div>}
                     <span>Profile</span>
                     {/* {currentUser?<span>Logout</span>:""} */}
                     </Link>

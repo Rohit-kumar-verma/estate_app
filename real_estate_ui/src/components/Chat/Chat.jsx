@@ -4,12 +4,15 @@ import { AuthContext } from '../../context/AuthContext'
 import apiRequest from '../../lib/apiRequest'
 import {format} from 'timeago.js'
 import { SocketContext } from '../../context/SocketContext'
+import { useNotficationsStore } from '../../lib/notificationsStore'
 
 const Chat = (chats) => {
 
     const [chat, setChat]= useState(null)
     const {currentUser}= useContext(AuthContext)
     const {socket}= useContext(SocketContext)
+
+    const decrease=useNotficationsStore((state)=>state.decrease)
 
     const messageEndRef = useRef()
 
@@ -20,6 +23,9 @@ const Chat = (chats) => {
     const handleOpenChat= async (id, receiver)=>{
     try {
         const res=await apiRequest.get("/chats/"+id)
+        if(!res.data.seenBy.includes(currentUser.id)){
+            decrease()
+        }
         setChat({...res.data, receiver})
     } catch (err) {
         console.log(err);
