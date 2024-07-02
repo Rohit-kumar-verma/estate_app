@@ -18,12 +18,12 @@ const NavBar = () => {
   return (
     <nav>
         <div className='left'>
-            <a href="#" className="logo">
+            <a href="/" className="logo">
             <img src='../../../src/assets/real-estate.svg' alt='logo' />
                 <span>LamaEstate</span>
             </a>
             {navLinks.map((navLink,index)=>(
-                <a href='#' key={navLink.id}>{navLink.title}</a>
+                <a href={navLink.url} key={navLink.id}>{navLink.title}</a>
             ))}
         </div>
         <div className='right'>

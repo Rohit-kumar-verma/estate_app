@@ -29,10 +29,11 @@ const SearchBar = () => {
         <input type='text' name='city' placeholder='City' onChange={handleChange}/>
         <input type='number' name='minPrice' min={0} max={1000000} placeholder='Min Price'  onChange={handleChange}/>
         <input type='number' name='maxPrice' min={0} max={1000000} placeholder='Max Price'  onChange={handleChange}/>
-        <Link to={`/list-page?type=${query.type}&city=${query.city}&minPrice=${query.minPrice}$maxPrice=${query.maxPrice}`}></Link>
+        <Link to={`/list-page?type=${query.type}&city=${query.city}&minPrice=${query.minPrice}$maxPrice=${query.maxPrice}`}>
         <button type='submit'>
           <img src='../../../src/assets/search.png' alt=''/>
         </button>
+        </Link>
       </form>
     </div>
   )
