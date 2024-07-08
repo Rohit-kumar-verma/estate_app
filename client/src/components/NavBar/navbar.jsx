@@ -39,7 +39,7 @@ const NavBar = () => {
             </div>
             ): (
                 <>
-                    <a href='/login' >Sign in</a>
+                    <a href='/login'>Sign in</a>
                     <a href='/register' className='signUp'>Sign up</a>
                 </>
             )}
