@@ -11,7 +11,7 @@ const app= express()
 
 app.use(cookieParser())
 
-app.use(cors({origin:process.env.CLIENT_URL}))
+app.use(cors({origin:process.env.CLIENT_URL, methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',credentials:true}))
 app.use(express.json())
 
 app.use('/api/auth', authRoute);
@@ -21,7 +21,7 @@ app.use('/api/test', testRoute);
 app.use('/api/chats', chatRoute);
 app.use('/api/messages', messageRoute);
 
-const PORT = process.env.PORT|| 8800;
+const PORT = process.env.PORT || 8800;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
